@@ -1,22 +1,27 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-"""A Snippet instance is an instance of a Snippet Definition. That is, when the
-user expands a snippet, a SnippetInstance is created to keep track of the
-corresponding TextObjects. The Snippet itself is also a TextObject. """
+"""A Snippet instance is an instance of a Snippet Definition.
 
+That is, when the user expands a snippet, a SnippetInstance is created
+to keep track of the corresponding TextObjects. The Snippet itself is
+also a TextObject.
+
+"""
+
+from UltiSnips import _vim
 from UltiSnips.position import Position
-import UltiSnips._vim as _vim
 from UltiSnips.text_objects._base import EditableTextObject, \
-        NoneditableTextObject
-from UltiSnips.text_objects._parser import parse_text_object
+    NoneditableTextObject
+
 
 class SnippetInstance(EditableTextObject):
+
     """See module docstring."""
     # pylint:disable=protected-access
 
-    def __init__(self, snippet, parent, indent, initial_text,
-            start, end, visual_content, last_re, globals):
+    def __init__(self, snippet, parent, initial_text,
+                 start, end, visual_content, last_re, globals, context):
         if start is None:
             start = Position(0, 0)
         if end is None:
@@ -24,15 +29,11 @@ class SnippetInstance(EditableTextObject):
         self.snippet = snippet
         self._cts = 0
 
-        self.locals = {"match" : last_re}
+        self.locals = {'match': last_re, 'context': context}
         self.globals = globals
         self.visual_content = visual_content
 
         EditableTextObject.__init__(self, parent, start, end, initial_text)
-
-        parse_text_object(self, initial_text, indent)
-
-        self.update_textobjects()
 
     def replace_initial_text(self):
         """Puts the initial text of all text elements into Vim."""
@@ -44,19 +45,23 @@ class SnippetInstance(EditableTextObject):
                     _place_initial_text(child)
         _place_initial_text(self)
 
-    def replay_user_edits(self, cmds):
-        """Replay the edits the user has done to keep endings of our
-        Text objects in sync with reality"""
+    def replay_user_edits(self, cmds, ctab=None):
+        """Replay the edits the user has done to keep endings of our Text
+        objects in sync with reality."""
         for cmd in cmds:
-            self._do_edit(cmd)
+            self._do_edit(cmd, ctab)
 
     def update_textobjects(self):
-        """Update the text objects that should change automagically after
-        the users edits have been replayed. This might also move the Cursor
+        """Update the text objects that should change automagically after the
+        users edits have been replayed.
+
+        This might also move the Cursor
+
         """
         vc = _VimCursor(self)
         done = set()
         not_done = set()
+
         def _find_recursive(obj):
             """Finds all text objects and puts them into 'not_done'."""
             if isinstance(obj, EditableTextObject):
@@ -74,10 +79,10 @@ class SnippetInstance(EditableTextObject):
             counter -= 1
         if not counter:
             raise RuntimeError(
-                "The snippets content did not converge: Check for Cyclic "
-                "dependencies or random strings in your snippet. You can use "
+                'The snippets content did not converge: Check for Cyclic '
+                'dependencies or random strings in your snippet. You can use '
                 "'if not snip.c' to make sure to only expand random output "
-                "once.")
+                'once.')
         vc.to_vim()
         self._del_child(vc)
 
@@ -117,6 +122,7 @@ class SnippetInstance(EditableTextObject):
 
 
 class _VimCursor(NoneditableTextObject):
+
     """Helper class to keep track of the Vim Cursor when text objects expand
     and move."""
 

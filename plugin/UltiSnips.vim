@@ -6,13 +6,21 @@
 "   See directions at the top of the test.py script located one
 "   directory above this file.
 
-if exists('did_UltiSnips_plugin') || &cp || version < 700
+if exists('did_UltiSnips_plugin') || &cp
     finish
+endif
+let did_UltiSnips_plugin=1
+
+if version < 704
+   echohl WarningMsg
+   echom  "UltiSnips requires Vim >= 7.4"
+   echohl None
+   finish
 endif
 
 " The Commands we define.
-command! -nargs=? -complete=customlist,UltiSnips#FileTypeComplete UltiSnipsEdit
-    \ :call UltiSnips#Edit(<q-args>)
+command! -bang -nargs=? -complete=customlist,UltiSnips#FileTypeComplete UltiSnipsEdit
+    \ :call UltiSnips#Edit(<q-bang>, <q-args>)
 
 command! -nargs=1 UltiSnipsAddFiletypes :call UltiSnips#AddFiletypes(<q-args>)
 
@@ -57,13 +65,18 @@ function! UltiSnips_Anon(...)
     return call(function('UltiSnips#Anon'), a:000)
 endfunction
 
-au CursorMovedI * call UltiSnips#CursorMoved()
-au CursorMoved * call UltiSnips#CursorMoved()
-au BufLeave * call UltiSnips#LeavingBuffer()
-au InsertLeave * call UltiSnips#LeavingInsertMode()
+augroup UltiSnips
+    au!
+    au CursorMovedI * call UltiSnips#CursorMoved()
+    au CursorMoved * call UltiSnips#CursorMoved()
+
+    au InsertLeave * call UltiSnips#LeavingInsertMode()
+
+    au BufLeave * call UltiSnips#LeavingBuffer()
+    au CmdwinEnter * call UltiSnips#LeavingBuffer()
+    au CmdwinLeave * call UltiSnips#LeavingBuffer()
+augroup END
 
 call UltiSnips#map_keys#MapKeys()
-
-let did_UltiSnips_plugin=1
 
 " vim: ts=8 sts=4 sw=4
