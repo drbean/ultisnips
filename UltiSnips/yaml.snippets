@@ -230,8 +230,17 @@ snippet q
 - question: |+
     ${1}
   option:
-   - First
-   - Second
+   - ${2}
+   - ${3}
   answer: ${4}
 ${5}
+endsnippet
+
+snippet s
+${0}:
+  jigsaw:
+    0:
+      identifier: ${1}
+      quiz:
+        ${2}
 endsnippet
