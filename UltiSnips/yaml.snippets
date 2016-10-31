@@ -1,10 +1,3 @@
-snippet r
-	`Increment_i()`:
-	   White: 975500${1}
-	   Black: 975500${2}
-	${3}
-endsnippet
-
 snippet f
 	`Increment_i()`:
 	   White: U00340${1}
@@ -227,39 +220,29 @@ snippet rest
 endsnippet
 
 snippet q
-- question: |+
-    ${1}
-  option:
-   - clear
-   - concise
-   - concrete
-   - correct
-   - coherent
-   - complete
-   - courteous
-   - considerate
+- question: ${1}
   answer: ${2}
-${5}
+${3}
 endsnippet
 
-snippet qa
-- question: |+
-    ${1}
+snippet qr
+- question: ${1}
   option:
-   - reader interest
-   - reader knowledge
-   - reader purpose
-   - reader point of view
-   - reader relationship with writer
-   - reader prefered style
-  answer: ${2}
-${5}
+   - Kevin
+   - Paul
+   - Sivers
+  answer: ${5}
+${6}
 endsnippet
 
 snippet s
 jigsaw:
 0:
   identifier: ${1}
-  quiz:
-    ${2}
+  ${2}
+endsnippet
+
+snippet r
+${1}: ${2}
+${3}
 endsnippet
