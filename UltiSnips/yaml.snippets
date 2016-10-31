@@ -230,17 +230,36 @@ snippet q
 - question: |+
     ${1}
   option:
-   - ${2}
-   - ${3}
-  answer: ${4}
+   - clear
+   - concise
+   - concrete
+   - correct
+   - coherent
+   - complete
+   - courteous
+   - considerate
+  answer: ${2}
+${5}
+endsnippet
+
+snippet qa
+- question: |+
+    ${1}
+  option:
+   - reader interest
+   - reader knowledge
+   - reader purpose
+   - reader point of view
+   - reader relationship with writer
+   - reader prefered style
+  answer: ${2}
 ${5}
 endsnippet
 
 snippet s
-${0}:
-  jigsaw:
-    0:
-      identifier: ${1}
-      quiz:
-        ${2}
+jigsaw:
+0:
+  identifier: ${1}
+  quiz:
+    ${2}
 endsnippet
