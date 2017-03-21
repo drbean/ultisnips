@@ -1,10 +1,3 @@
-snippet f
-	`Increment_i()`:
-	   White: U00340${1}
-	   Black: U00340${2}
-	${3}
-endsnippet
-
 snippet 2
 `!v Increment_i()`:
   White: B02200${1}
@@ -16,13 +9,6 @@ snippet n
 `!v Increment_i()`:
    White: N02200${1}
    Black: N02200${2}
-${3}
-endsnippet
-
-snippet m
-`!v Increment_i()`:
-  White: B01200${1}
-  Black: B01200${2}
 ${3}
 endsnippet
 
@@ -40,21 +26,10 @@ snippet yj
 ${3}
 endsnippet
 
-snippet p
-Table 9`!v Increment_i()`:
-  X:
-    x:
-      ${1}: ${2}
-    y:
-      ${3}: ${4}
-    winner: ${5}
-${6}
-endsnippet
-
-snippet tm
+snippet u
 	`Increment_i()`:
-	  White: U00331${1}
-	  Black: U00330${2}
+	  White: U05${1}
+	  Black: U05${2}
 	${3}
 endsnippet
 
@@ -219,30 +194,79 @@ snippet rest
 	approach: CompComp
 endsnippet
 
-snippet q
+snippet tf
 - question: ${1}
   answer: ${2}
 ${3}
 endsnippet
 
-snippet qr
+snippet qo
 - question: ${1}
   option:
-   - Kevin
-   - Paul
-   - Sivers
-  answer: ${5}
-${6}
+    - ${2}
+  answer: ${3}
+${4}
 endsnippet
 
-snippet s
+snippet j
 jigsaw:
-0:
-  identifier: ${1}
-  ${2}
+  0:
+    identifier: ${1}
+    quiz:
+      ${2}
+endsnippet
+
+# first scrambled sentence
+snippet s
+scramble:
+  0:
+    identifier: ${1}
+    sentence:
+      - ${2}
+  ${3}
+endsnippet
+
+# following scrambled sentences
+snippet ss
+${1}:
+  identifier: ${2}
+  sentence:
+    - ${3}
+${4}
 endsnippet
 
 snippet r
 ${1}: ${2}
 ${3}
+endsnippet
+
+snippet m
+match:
+  0:
+    identifier: ${1}
+    pair:
+      ${2}
+endsnippet
+
+snippet p
+-
+  - ${1}
+  - ${2}
+${3}
+endsnippet
+
+snippet d
+drag:
+  0:
+    identifier: ${1}
+    sentence: ${2}
+    clozed: ${3}
+${3}
+endsnippet
+
+snippet f
+  ${1}:
+    identifier: ${2}
+    quiz:
+      ${2}
 endsnippet
