@@ -1,14 +1,43 @@
 snippet 2
 `!v Increment_i()`:
-  White: B02200${1}
-  Black: B02200${2}
+  White: B022000${1}
+  Black: B022000${2}
 ${3}
 endsnippet
 
-snippet n
+snippet n3
 `!v Increment_i()`:
-   White: N04200${1}
-   Black: N04200${2}
+  White: N032000${1}
+  Black: N032000${2}
+${3}
+endsnippet
+
+snippet N03
+N032000${1}
+endsnippet
+
+snippet N04
+N042000${1}
+endsnippet
+
+snippet n4
+`!v Increment_i()`:
+  White: N042000${1}
+  Black: N042000${2}
+${3}
+endsnippet
+
+snippet _n
+`!v Increment_i()`:
+  White: ${1}
+  Black: N042000${2}
+${3}
+endsnippet
+
+snippet n_
+`!v Increment_i()`:
+  White: N042000${1}
+  Black: ${2}
 ${3}
 endsnippet
 
@@ -216,6 +245,14 @@ jigsaw:
       ${2}
 endsnippet
 
+# following jigsaw form
+snippet jj
+${1}:
+  identifier: ${2}
+  quiz:
+    ${3}
+endsnippet
+
 # first scrambled sentence
 snippet s
 scramble:
@@ -246,6 +283,13 @@ match:
     identifier: ${1}
     pair:
       ${2}
+endsnippet
+
+snippet mm
+${1}:
+  identifier: ${2}
+  pair:
+    ${3}
 endsnippet
 
 snippet p
