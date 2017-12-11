@@ -304,8 +304,17 @@ snippet d
 drag:
   0:
     identifier: ${1}
-    sentence: ${2}
-    clozed: ${3}
+    sentences:
+      -
+        sentence: ${2}
+        clozed: ${3}
+      ${4}
+endsnippet
+
+snippet dd
+-
+  sentence: ${1}
+  clozed: ${2}
 ${3}
 endsnippet
 
