@@ -365,11 +365,18 @@ snippet f
       ${2}
 endsnippet
 
-snippet qq
+snippet a
 -
-  topic: ${1}
-  story: ${2}
-  type : ${3}
-  form : ${4}
-${0}
+  name: $1
+  question:
+    $0
+endsnippet
+
+snippet q
+-
+  topic: $1
+  story: $2
+  type : $3
+  form : $4
+$0
 endsnippet
