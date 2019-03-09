@@ -111,13 +111,6 @@ snippet c
 	${3}
 endsnippet
 
-snippet g
-	`Increment_i()`:
-	   White: ${1}
-	   Black: ${2}
-	${3}
-endsnippet
-
 snippet b
 	`Increment_i()`:
 	  White: U0031${1}
@@ -224,17 +217,34 @@ snippet rest
 	approach: CompComp
 endsnippet
 
+snippet gw
+- question: $1
+  option:
+    - goodwill message$0
+    - good news message
+  answer: \$2
+endsnippet
+
+snippet gn
+- question: $1
+  option:
+    - goodwill message
+    - good news message$0
+  answer: \$2
+endsnippet
+
 snippet tf
-- question: ${1}
-  answer: ${2}
-${3}
+- question: $1
+  answer: $2
+$0
 endsnippet
 
 snippet qo
-- question: ${1}
+- question: $1
   option:
-    - ${2}
-  answer: ${3}
+    - $2
+  answer: $3
+$0
 endsnippet
 
 snippet i
@@ -367,9 +377,7 @@ endsnippet
 
 snippet a
 -
-  name: $1
-  question:
-    $0
+  $0
 endsnippet
 
 snippet q
@@ -378,5 +386,6 @@ snippet q
   story: $2
   type : $3
   form : $4
+  intro: $5
 $0
 endsnippet
