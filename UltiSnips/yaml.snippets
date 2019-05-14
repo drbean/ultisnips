@@ -233,6 +233,21 @@ snippet gn
   answer: \$2
 endsnippet
 
+snippet qu
+- question: $1
+endsnippet
+
+snippet oa
+option:
+  - background
+  - complaint
+  - damage
+  - request
+  - threat
+  - polite close
+answer: wrong answer
+endsnippet
+
 snippet tf
 - question: $1
   answer: $2
@@ -247,10 +262,17 @@ snippet qo
 $0
 endsnippet
 
+snippet qi
+- question: $1
+  answer:
+    - $2
+  $0
+endsnippet
+
 snippet i
 incorrect:
   -
-    error: ^(?!.*$1.*)
+    error: ^(?!$1.*)
     feedback: Use the words, "$1"
   ${2}
 endsnippet
@@ -259,6 +281,13 @@ snippet ii
 -
   error: ^(?!.*$1.*)
   feedback: Use the words, "$1"
+$0
+endsnippet
+
+snippet iii
+-
+  error: ^(?!.*$1\.$)
+  feedback: Use the words, "$1."
 $0
 endsnippet
 
@@ -382,10 +411,11 @@ endsnippet
 
 snippet q
 -
-  topic: $1
-  story: $2
-  type : $3
-  form : $4
-  intro: $5
+  topic : $1
+  story : $2
+  type  : $3
+  form  : $4
+  intro : $5
+  random: $6
 $0
 endsnippet
