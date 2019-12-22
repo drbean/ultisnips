@@ -239,12 +239,13 @@ endsnippet
 
 snippet oa
 option:
-  - background
-  - complaint
-  - damage
-  - request
-  - threat
-  - polite close
+  - February 14
+  - March 15
+  - April 15
+  - April 16
+  - April 30
+  - May 7
+  - May 15
 answer: wrong answer
 endsnippet
 
@@ -262,10 +263,24 @@ snippet qo
 $0
 endsnippet
 
+snippet q0
+- question: $1
+  option:
+    - a one-time event
+    - a recurring situation
+  answer: $2
+$0
+endsnippet
+
 snippet qi
 - question: $1
+  option:
+    - step 1a. how the writer found out about the other's company
+    - step 1b. propose the 2 companies do some business (what business? ie what does the writer wants to sell?)
+    - step 2. description of the writer's company
+    - step 3. selling points of the writer's product
+    - step 4. call to action
   answer:
-    - $2
   $0
 endsnippet
 
@@ -417,5 +432,26 @@ snippet q
   form  : $4
   intro : $5
   random: $6
+$0
+endsnippet
+
+snippet aq
+-
+  -
+    topic : $1
+    story : $2
+    type  : $3
+    form  : $4
+    intro : $5
+    random: $6
+$0
+endsnippet
+
+snippet ma
+- question: You want to ask someone to $1. You say:
+  option:
+    - Would you mind $2$1?
+    - I'm afraid I'm going to have to ask you to $3$1.
+  answer:
 $0
 endsnippet
