@@ -1,0 +1,72 @@
+snippet #!
+#!/usr/bin/perl 
+
+# Created: `date`
+# Last Edit: 2019 Dec 26, 12:46:09 PM
+# $Id$
+
+=head1 NAME
+
+`!p snip.rv=fn` - $1
+
+=cut
+
+our $VERSION = '0.0$2';
+
+use strict;
+use warnings;
+use Pod::Usage;
+
+=head1 SYNOPSIS
+
+$3
+
+=cut
+
+use IO::All;
+use YAML qw/Dump LoadFile DumpFile/;
+use Cwd; use File::Basename;
+use Encode;
+use Grades;
+
+my $script = Grades::Script->new_with_options( league => basename(getcwd) );
+pod2usage(1) if $script->help;
+pod2usage(-exitstatus => 0, -verbose => 2) if $script->man;
+
+my $leagueId = $script->league;
+my $semester = $ENV{SEMESTER};
+my $leagues = "/home/drbean/$semester";
+$leagueId = basename( getcwd ) if not defined $leagueId;
+
+=head1 DESCRIPTION
+
+$4
+
+=cut
+
+use Grades;
+my $l = League->new( leagues => "/home/drbean/$semester", id => $leagueId );
+my $g = Grades->new({ league => $l });
+my $c = $l->yaml;
+
+$5
+
+print Dump $c;
+
+=head1 AUTHOR
+
+Dr Bean C<< <drbean at cpan, then a dot, (.), and org> >>
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright 2019 Dr Bean, all rights reserved.
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+=cut
+
+# End of `!p snip.rv=fn`
+
+# vim: set ts=8 sts=4 sw=4 noet:
+endsnippet
