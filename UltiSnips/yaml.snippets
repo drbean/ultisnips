@@ -257,10 +257,9 @@ endsnippet
 
 snippet qo
 - question: $1
-  option:
+  option:$0
     - $2
-  answer: $3
-$0
+  answer: Wrong answer
 endsnippet
 
 snippet q0
@@ -283,11 +282,10 @@ endsnippet
 snippet qi
 - question: $1
   option:
-    - scares
+    - scares$0
     - is scared
     - is scary
   answer: no answer
-  $0
 endsnippet
 
 snippet i
@@ -404,18 +402,29 @@ endsnippet
 snippet d
 drag:
   0:
-    identifier: ${1}
+    identifier: $1
     sentences:
       -
-        sentence: ${2}
-        clozed: ${3}
-      ${4}
+        sentence: $2
+        clozed: $2
+      $0
 endsnippet
 
 snippet dd
+$1:
+  identifier: $2
+  sentences:
+    -
+      sentence: $3
+      clozed: $3
+    $0
+endsnippet
+
+snippet ddd
 -
   sentence: $1
   clozed: $1
+$0
 endsnippet
 
 snippet f
