@@ -438,11 +438,11 @@ endsnippet
 
 snippet a
 -
+  question:
   $0
 endsnippet
 
 snippet q
-question:
 -
   topic : $1
   story : $2
@@ -464,6 +464,15 @@ snippet aq
     intro : $5
     random: $6
   $0
+endsnippet
+
+# moodle url resource
+snippet url
+url:
+  0:
+    identifier: $1
+    externalurl: $2
+$0
 endsnippet
 
 snippet ma
