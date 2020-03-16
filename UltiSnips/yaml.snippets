@@ -262,6 +262,22 @@ snippet qo
   answer: Wrong answer
 endsnippet
 
+snippet cc
+- question: |+
+$1
+  option:$0
+    - No problem with any item
+    - A problem with more than one item
+    - "A problem with the To:, From: and Subject: lines"
+    - "A problem with: Reference to source of information about cruise"
+    - "A problem with: Expression of interest in cruise"
+    - "A problem with: Dietary accommodation inquiry"
+    - "A problem with: Cruise repetition inquiry"
+    - "A problem with: Swimming ability inquiry"
+    - "A problem with: Confident close"
+  answer: Wrong answer
+endsnippet
+
 snippet q0
 - question: $1
   option:
@@ -455,7 +471,7 @@ endsnippet
 
 snippet aq
 -
-  question:
+  content:
   -
     topic : $1
     story : $2
