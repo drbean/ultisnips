@@ -263,11 +263,12 @@ snippet qo
 endsnippet
 
 snippet cc
-- question: $1
-  option:$0
-    - an acknowledgment to an inquiry
-    - a reply to an inquiry
-  answer: Wrong answer
+        - question: |+
+$1
+          option:$0
+            - a good acknowledgment to the cruise inquiry
+            - one or more problems with the acknowledgment to the cruise inquiry
+          answer: Wrong answer
 endsnippet
 
 snippet q0
@@ -345,13 +346,13 @@ description:
   $0
 endsnippet
 
-# moodle quiz essay form
+# moodle quiz essay form (standing in for quiz essay, forum, assign, studentquiz & other activities needing an intro)
 snippet e
-essay:
-  0:
-    identifier: $1
+$1:
+  $2:
+    identifier: $3
     rubric: |+
-      $2
+      $4
   $0
 endsnippet
 
