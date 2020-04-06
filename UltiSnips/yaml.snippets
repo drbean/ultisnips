@@ -55,12 +55,12 @@ snippet yj
 ${3}
 endsnippet
 
-snippet u
-	`Increment_i()`:
-	  White: U05${1}
-	  Black: U05${2}
-	${3}
-endsnippet
+# snippet u
+# 	`Increment_i()`:
+# 	  White: U05${1}
+# 	  Black: U05${2}
+# 	${3}
+# endsnippet
 
 snippet v2_
 	`Increment_i()`:
@@ -274,13 +274,34 @@ $1
           answer: Wrong answer
 endsnippet
 
-snippet cc
+snippet pr
         - question: |+
 $1
           option:$0
             - Experiencer
             - Situation
             - Explanation
+          answer: Wrong answer
+endsnippet
+
+snippet so
+        - question: |+
+$1
+          option:$0
+            - Agent
+            - Problem
+            - Means
+          answer: Wrong answer
+endsnippet
+
+snippet ev
+        - question: |+
+$1
+          option:$0
+            - Assessor
+            - Phenomenon
+            - Value
+            - Feature
           answer: Wrong answer
 endsnippet
 
@@ -489,7 +510,7 @@ snippet aq
 endsnippet
 
 # moodle url resource
-snippet url
+snippet u
 url:
   0:
     identifier: $1
