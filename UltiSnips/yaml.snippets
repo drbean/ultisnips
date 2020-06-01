@@ -183,13 +183,13 @@ snippet resp
 endsnippet
 
 snippet -
-- Chinese: ${1}
-  id: ${2}
-  name: ${3}
-  password: ${4}
-  email: ${5}
-  rating: ${6}
-${7}
+- Chinese: unknown
+  id: unknown
+  name: ${1}
+  password: unknown
+  email: unknown
+  rating: ~
+${0}
 endsnippet
 
 snippet league
@@ -258,16 +258,9 @@ endsnippet
 snippet qo
 - question: $1
   option:$0
-    - establishing_contact
-    - confirmation check, showing you recognize the problem
-    - comments about the situation
-    - claim that a solution exists
-    - account of work to find a solution, announcement that a solution follows
-    - a solution
-    - evaluation of the solution
-    - sign-posting solutions "Solutions that-a-way"
-    - offer of continued help
-    - parting
+    - acceptable
+    - acceptable with other documents
+    - unacceptable
   answer: Wrong answer
 endsnippet
 
@@ -519,12 +512,12 @@ snippet aq
 -
   content:
   -
-    topic : contributed
-    story : $1
-    type  : jigsaw
-    form  : 0
-    intro : $2 characters from ${3:$1}
-    random:
+    topic : $1
+    story : $2
+    type  : $3
+    form  : $4
+    intro : $5
+    random: $6
 $0
 endsnippet
 
