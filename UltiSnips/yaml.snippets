@@ -251,14 +251,15 @@ endsnippet
 
 snippet tf
 - question: $1
-  answer: $2
+  answer: ${2:False}
 $0
 endsnippet
 
 snippet qo
-- question: $1
-  option:$0
-  answer: Wrong answer
+        - question: |+
+$1
+          option:$0
+          answer: Wrong answer
 endsnippet
 
 snippet ri
